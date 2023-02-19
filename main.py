@@ -14,7 +14,10 @@ class Handler:
     def run():
         name = get_string()
         qr = create_qrcode(string=name)
-        save_qrcode(filename=name[0:20],qrcode=qr)
-        
+        try:
+            save_qrcode(filename=name[0:20],qrcode=qr)
+        except:
+            save_qrcode(filename='file',qrcode=qr)
+            
 if __name__ == "__main__":
     Handler.run()
